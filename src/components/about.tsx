@@ -79,10 +79,10 @@ export function About() {
               return (
                 <div
                   key={val.label}
-                  className="bg-surface-raised border border-edge rounded-xl p-5 hover:border-edge-strong transition-all duration-300"
+                  className="bg-surface-raised border border-edge rounded-xl p-5 hover:border-edge-strong hover:shadow-[0_2px_20px_rgba(212,160,40,0.06)] transition-all duration-300"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-brand/5 flex items-center justify-center mb-3">
-                    <Icon size={18} className="text-brand" />
+                  <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center mb-3">
+                    <Icon size={18} className="text-accent" />
                   </div>
                   <h3 className="font-[family-name:var(--font-space-grotesk)] text-sm font-bold text-ink mb-1">
                     {val.label}

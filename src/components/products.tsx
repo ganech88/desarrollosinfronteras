@@ -21,7 +21,7 @@ const products = [
   {
     id: "consorcio-trust",
     badge: "Producto Estrella",
-    badgeColor: "bg-signal-success/10 text-signal-success",
+    badgeColor: "bg-signal-success/15 text-signal-success",
     name: "ConsorcioTrust",
     tagline: "Gestión de consorcios, reimaginada.",
     description:
@@ -40,7 +40,7 @@ const products = [
   {
     id: "cripto-bot",
     badge: "En Desarrollo",
-    badgeColor: "bg-signal-info/10 text-signal-info",
+    badgeColor: "bg-signal-info/15 text-signal-info",
     name: "Cripto Bot",
     tagline: "Trading automatizado con inteligencia artificial.",
     description:
@@ -58,7 +58,7 @@ const products = [
   {
     id: "saas-nuevo",
     badge: "Próximamente",
-    badgeColor: "bg-accent/10 text-accent-hover",
+    badgeColor: "bg-accent/15 text-accent",
     name: "Nuevo Proyecto SaaS",
     tagline: "El siguiente desafío.",
     description:
@@ -114,7 +114,7 @@ export function Products() {
               <motion.div
                 key={product.id}
                 variants={itemVariants}
-                className={`group relative bg-surface-raised border border-edge rounded-xl p-6 sm:p-8 transition-all duration-300 hover:border-edge-strong hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] ${
+                className={`group relative bg-surface-raised border border-edge rounded-xl p-6 sm:p-8 transition-all duration-300 hover:border-edge-strong hover:shadow-[0_2px_20px_rgba(212,160,40,0.06)] ${
                   product.featured ? "lg:row-span-2 lg:col-span-2" : ""
                 }`}
               >
@@ -128,8 +128,8 @@ export function Products() {
 
                 {/* Icon + name */}
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-surface-inset flex items-center justify-center shrink-0">
-                    <Icon size={20} className="text-brand" />
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                    <Icon size={20} className="text-accent" />
                   </div>
                   <div>
                     <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-ink">
@@ -176,7 +176,7 @@ export function Products() {
                     {product.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs text-ink-tertiary bg-surface-inset px-2.5 py-1 rounded-md"
+                        className="text-xs text-ink-tertiary bg-surface-inset border border-edge px-2.5 py-1 rounded-md"
                       >
                         {tech}
                       </span>
@@ -189,7 +189,7 @@ export function Products() {
                   <div className="mt-6">
                     <a
                       href="#contacto"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:text-accent transition-colors group/link"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors group/link"
                     >
                       Conocé más
                       <ArrowUpRight

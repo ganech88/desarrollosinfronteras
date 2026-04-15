@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0c040"/>
+      <stop offset="50%" stop-color="#d4a028"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+  </defs>
+  <circle cx="16" cy="16" r="15" fill="#0a0a0f"/>
+  <circle cx="16" cy="16" r="13.5" fill="none" stroke="url(#fg)" stroke-width="1.2"/>
+  <!-- Simplified globe -->
+  <ellipse cx="16" cy="16" rx="13" ry="5" fill="none" stroke="url(#fg)" stroke-width="0.6" opacity="0.6"/>
+  <ellipse cx="16" cy="16" rx="5" ry="13" fill="none" stroke="url(#fg)" stroke-width="0.6" opacity="0.6"/>
+  <line x1="3" y1="16" x2="29" y2="16" stroke="url(#fg)" stroke-width="0.6" opacity="0.5"/>
+  <line x1="16" y1="3" x2="16" y2="29" stroke="url(#fg)" stroke-width="0.6" opacity="0.5"/>
+  <!-- Center node -->
+  <circle cx="16" cy="16" r="1.5" fill="#e8a838"/>
+</svg>

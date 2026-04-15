@@ -2,22 +2,24 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-16">
+    <section className="relative min-h-[90vh] flex items-center pt-16 overflow-hidden">
       {/* Subtle grid background */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            "linear-gradient(var(--color-ink) 1px, transparent 1px), linear-gradient(90deg, var(--color-ink) 1px, transparent 1px)",
+            "linear-gradient(rgba(212,160,40,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(212,160,40,0.3) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
 
       {/* Accent glow */}
       <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-accent-glow rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/6 w-[300px] h-[300px] bg-accent-glow rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-6 w-full">
         <div className="max-w-3xl">
@@ -43,9 +45,9 @@ export function Hero() {
           >
             Construimos software
             <br />
-            <span className="text-brand">que resuelve problemas</span>
+            <span className="text-accent">que resuelve problemas</span>
             <br />
-            <span className="text-accent">reales.</span>
+            <span className="text-brand-light">reales.</span>
           </motion.h1>
 
           {/* Subline */}
@@ -68,7 +70,7 @@ export function Hero() {
           >
             <a
               href="#productos"
-              className="inline-flex items-center justify-center gap-2 bg-brand text-white font-medium text-sm px-6 py-3 rounded-lg hover:bg-brand/90 transition-colors duration-200 group"
+              className="inline-flex items-center justify-center gap-2 bg-accent text-[#0a0a0f] font-semibold text-sm px-6 py-3 rounded-lg hover:bg-accent-hover transition-colors duration-200 group"
             >
               Ver productos
               <ArrowRight
@@ -78,7 +80,7 @@ export function Hero() {
             </a>
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2 border border-edge-strong text-ink font-medium text-sm px-6 py-3 rounded-lg hover:bg-surface-inset transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-2 border border-edge-strong text-ink font-medium text-sm px-6 py-3 rounded-lg hover:bg-surface-raised hover:border-accent/30 transition-colors duration-200"
             >
               Contanos tu idea
             </a>
@@ -98,7 +100,7 @@ export function Hero() {
             { value: "100%", label: "TypeScript & React" },
           ].map((stat) => (
             <div key={stat.label}>
-              <div className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-ink">
+              <div className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-accent">
                 {stat.value}
               </div>
               <div className="text-sm text-ink-tertiary mt-1">{stat.label}</div>

@@ -76,10 +76,10 @@ export function Services() {
               <motion.div
                 key={service.title}
                 variants={itemVariants}
-                className="bg-surface-raised border border-edge rounded-xl p-6 sm:p-8 hover:border-edge-strong transition-all duration-300"
+                className="bg-surface-raised border border-edge rounded-xl p-6 sm:p-8 hover:border-edge-strong hover:shadow-[0_2px_20px_rgba(212,160,40,0.06)] transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg bg-brand/5 flex items-center justify-center mb-5">
-                  <Icon size={20} className="text-brand" />
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
+                  <Icon size={20} className="text-accent" />
                 </div>
 
                 <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-ink mb-2">
@@ -94,7 +94,7 @@ export function Services() {
                   {service.details.map((detail) => (
                     <span
                       key={detail}
-                      className="text-xs text-ink-tertiary bg-surface-inset px-2.5 py-1 rounded-md"
+                      className="text-xs text-ink-tertiary bg-surface-inset border border-edge px-2.5 py-1 rounded-md"
                     >
                       {detail}
                     </span>

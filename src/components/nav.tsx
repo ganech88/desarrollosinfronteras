@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { label: "Productos", href: "#productos" },
@@ -26,18 +27,20 @@ export function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-edge shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+          ? "bg-[#0a0a0f]/90 backdrop-blur-md border-b border-edge shadow-[0_1px_8px_rgba(0,0,0,0.3)]"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-brand flex items-center justify-center">
-            <span className="text-white font-bold text-sm tracking-tight font-[family-name:var(--font-space-grotesk)]">
-              dsf
-            </span>
-          </div>
+          <Image
+            src="/logo.svg"
+            alt="Desarrollo sin Fronteras"
+            width={36}
+            height={36}
+            className="rounded-full"
+          />
           <span className="font-[family-name:var(--font-space-grotesk)] font-semibold text-ink text-[15px] tracking-tight hidden sm:block">
             Desarrollo sin Fronteras
           </span>
@@ -49,14 +52,14 @@ export function Nav() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-ink-secondary hover:text-ink transition-colors duration-200"
+              className="text-sm text-ink-secondary hover:text-accent transition-colors duration-200"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contacto"
-            className="text-sm font-medium bg-brand text-white px-4 py-2 rounded-lg hover:bg-brand/90 transition-colors duration-200"
+            className="text-sm font-medium bg-accent text-[#0a0a0f] px-4 py-2 rounded-lg hover:bg-accent-hover transition-colors duration-200"
           >
             Hablemos
           </a>
@@ -74,14 +77,14 @@ export function Nav() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-b border-edge">
+        <div className="md:hidden bg-[#0a0a0f]/95 backdrop-blur-md border-b border-edge">
           <div className="px-6 py-4 flex flex-col gap-3">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={closeMobile}
-                className="text-sm text-ink-secondary hover:text-ink py-2 transition-colors"
+                className="text-sm text-ink-secondary hover:text-accent py-2 transition-colors"
               >
                 {link.label}
               </a>
@@ -89,7 +92,7 @@ export function Nav() {
             <a
               href="#contacto"
               onClick={closeMobile}
-              className="text-sm font-medium bg-brand text-white px-4 py-2.5 rounded-lg text-center hover:bg-brand/90 transition-colors mt-1"
+              className="text-sm font-medium bg-accent text-[#0a0a0f] px-4 py-2.5 rounded-lg text-center hover:bg-accent-hover transition-colors mt-1"
             >
               Hablemos
             </a>

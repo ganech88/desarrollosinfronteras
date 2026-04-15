@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     "Software Factory argentina. Creamos productos digitales y soluciones a medida. ConsorcioTrust, Cripto Bot y desarrollo personalizado.",
   keywords:
     "software factory, desarrollo software, argentina, SaaS, consorcio, cripto bot",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Desarrollo sin Fronteras — Software Factory",
     description:
@@ -35,7 +38,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col bg-surface">{children}</body>
     </html>
   );
 }
