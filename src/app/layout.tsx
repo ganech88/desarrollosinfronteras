@@ -4,9 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Desarrollo sin Fronteras — Software Factory",
   description:
-    "Software Factory argentina. Creamos productos digitales y soluciones a medida. ConsorcioTrust, Cripto Bot y desarrollo personalizado.",
+    "Software Factory argentina. Productos propios como LegalIA y ConsorcioTrust, páginas web llave en mano y desarrollo a medida.",
   keywords:
-    "software factory, desarrollo software, argentina, SaaS, consorcio, cripto bot",
+    "software factory, desarrollo software, argentina, SaaS, legalia, ia para abogados, consorcios, páginas web, desarrollo web llave en mano",
   icons: {
     icon: "/favicon.svg",
   },

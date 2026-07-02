@@ -58,8 +58,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-ink-secondary leading-relaxed max-w-xl mb-10"
             >
-              Productos propios, desarrollo a medida y automatización con IA.
-              Desde la idea hasta producción, sin fronteras.
+              Productos propios como LegalIA y ConsorcioTrust, páginas web
+              llave en mano y desarrollo a medida con IA. Desde la idea hasta
+              producción, sin fronteras.
             </motion.p>
 
             {/* CTAs */}
@@ -175,9 +176,9 @@ export function Hero() {
           className="mt-20 flex flex-wrap gap-12 border-t border-edge pt-8"
         >
           {[
-            { value: "3+", label: "Productos activos" },
+            { value: "2", label: "Productos propios" },
+            { value: "Llave en mano", label: "Webs de punta a punta" },
             { value: "24/7", label: "Cloud Native" },
-            { value: "100%", label: "TypeScript & React" },
           ].map((stat) => (
             <div key={stat.label}>
               <div className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-accent">

@@ -3,24 +3,42 @@
 import { motion } from "framer-motion";
 import {
   Building2,
-  Bot,
-  Rocket,
+  Scale,
   Shield,
   MessageSquare,
   FileText,
   CalendarCheck,
   Smartphone,
-  TrendingUp,
   Brain,
-  BarChart3,
-  Clock,
+  BookOpen,
+  FileDown,
+  Landmark,
   ArrowUpRight,
 } from "lucide-react";
 
 const products = [
   {
+    id: "legalia",
+    badge: "IA Legal",
+    badgeColor: "bg-signal-info/15 text-signal-info",
+    name: "LegalIA",
+    tagline: "Inteligencia artificial para abogados argentinos.",
+    description:
+      "Asistente IA especializado en derecho argentino y generador de escritos judiciales. Produce borradores listos para presentar, citando artículos y jurisprudencia real — conoce las jurisdicciones, los fueros y el formato procesal correcto.",
+    icon: Scale,
+    features: [
+      { icon: FileText, label: "Generador de escritos judiciales" },
+      { icon: Brain, label: "Asistente IA con legislación argentina" },
+      { icon: BookOpen, label: "Citas de artículos y jurisprudencia" },
+      { icon: Landmark, label: "Jurisdicciones y fueros" },
+      { icon: FileDown, label: "Exportación a Word" },
+    ],
+    stack: ["Next.js", "Supabase", "Claude AI", "RAG"],
+    href: "#contacto",
+  },
+  {
     id: "consorcio-trust",
-    badge: "Producto Estrella",
+    badge: "Gestión de Consorcios",
     badgeColor: "bg-signal-success/15 text-signal-success",
     name: "ConsorcioTrust",
     tagline: "Gestión de consorcios, reimaginada.",
@@ -35,38 +53,7 @@ const products = [
       { icon: Smartphone, label: "PWA multiplataforma" },
     ],
     stack: ["React", "Supabase", "Tailwind CSS", "PWA"],
-    featured: true,
-  },
-  {
-    id: "cripto-bot",
-    badge: "En Desarrollo",
-    badgeColor: "bg-signal-info/15 text-signal-info",
-    name: "Cripto Bot",
-    tagline: "Trading automatizado con inteligencia artificial.",
-    description:
-      "Bot de trading cripto potenciado por IA. Análisis de sentimiento, múltiples estrategias y operación 24/7. Diseñado para ser consumido por terceros como servicio.",
-    icon: Bot,
-    features: [
-      { icon: Brain, label: "Trading con IA" },
-      { icon: TrendingUp, label: "Multi-estrategia" },
-      { icon: BarChart3, label: "Análisis de sentimiento" },
-      { icon: Clock, label: "Operación 24/7" },
-    ],
-    stack: ["Python", "Claude AI", "ccxt", "Spot Trading"],
-    featured: false,
-  },
-  {
-    id: "saas-nuevo",
-    badge: "Próximamente",
-    badgeColor: "bg-accent/15 text-accent",
-    name: "Nuevo Proyecto SaaS",
-    tagline: "El siguiente desafío.",
-    description:
-      "Estamos trabajando en nuevas soluciones SaaS. Cada producto que construimos nace de un problema real que encontramos o que nos traen.",
-    icon: Rocket,
-    features: [],
-    stack: [],
-    featured: false,
+    href: "#contacto",
   },
 ];
 
@@ -106,7 +93,7 @@ export function Products() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-6 lg:grid-cols-3"
+          className="grid gap-6 lg:grid-cols-2"
         >
           {products.map((product) => {
             const Icon = product.icon;
@@ -114,13 +101,11 @@ export function Products() {
               <motion.div
                 key={product.id}
                 variants={itemVariants}
-                className={`group relative bg-surface-raised border border-edge rounded-xl p-6 sm:p-8 transition-all duration-300 hover:border-edge-strong hover:shadow-[0_2px_20px_rgba(212,160,40,0.06)] ${
-                  product.featured ? "lg:row-span-2 lg:col-span-2" : ""
-                }`}
+                className="group relative flex flex-col bg-surface-raised border border-edge rounded-xl p-6 sm:p-8 transition-all duration-300 hover:border-edge-strong hover:shadow-[0_2px_20px_rgba(212,160,40,0.06)]"
               >
                 {/* Badge */}
                 <div
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium mb-5 ${product.badgeColor}`}
+                  className={`self-start inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium mb-5 ${product.badgeColor}`}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-current" />
                   {product.badge}
@@ -147,58 +132,46 @@ export function Products() {
                 </p>
 
                 {/* Features */}
-                {product.features.length > 0 && (
-                  <div
-                    className={`grid gap-3 mb-6 ${
-                      product.featured
-                        ? "sm:grid-cols-2 lg:grid-cols-3"
-                        : "grid-cols-1"
-                    }`}
-                  >
-                    {product.features.map((feature) => {
-                      const FIcon = feature.icon;
-                      return (
-                        <div
-                          key={feature.label}
-                          className="flex items-center gap-2.5 text-sm text-ink-secondary"
-                        >
-                          <FIcon size={15} className="text-ink-tertiary shrink-0" />
-                          {feature.label}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
+                <div className="grid gap-3 mb-6 sm:grid-cols-2">
+                  {product.features.map((feature) => {
+                    const FIcon = feature.icon;
+                    return (
+                      <div
+                        key={feature.label}
+                        className="flex items-center gap-2.5 text-sm text-ink-secondary"
+                      >
+                        <FIcon size={15} className="text-ink-tertiary shrink-0" />
+                        {feature.label}
+                      </div>
+                    );
+                  })}
+                </div>
 
                 {/* Stack */}
-                {product.stack.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-edge">
-                    {product.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs text-ink-tertiary bg-surface-inset border border-edge px-2.5 py-1 rounded-md"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {/* Featured CTA */}
-                {product.featured && (
-                  <div className="mt-6">
-                    <a
-                      href="#contacto"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors group/link"
+                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-edge">
+                  {product.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs text-ink-tertiary bg-surface-inset border border-edge px-2.5 py-1 rounded-md"
                     >
-                      Conocé más
-                      <ArrowUpRight
-                        size={14}
-                        className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
-                      />
-                    </a>
-                  </div>
-                )}
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <div className="mt-6">
+                  <a
+                    href={product.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors group/link"
+                  >
+                    Conocé más
+                    <ArrowUpRight
+                      size={14}
+                      className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
+                    />
+                  </a>
+                </div>
               </motion.div>
             );
           })}
