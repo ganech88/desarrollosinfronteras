@@ -2,19 +2,36 @@
 
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail, CheckCircle } from "lucide-react";
+import { Send, Mail, CheckCircle, AlertCircle } from "lucide-react";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setError(false);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          message: data.get("message"),
+        }),
+      });
+      if (!res.ok) throw new Error("send failed");
       setSubmitted(true);
-    }, 1200);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -87,6 +104,7 @@ export function Contact() {
                   </label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
                     required
                     className="w-full bg-surface-dark border border-edge rounded-lg px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all"
@@ -103,6 +121,7 @@ export function Contact() {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     required
                     className="w-full bg-surface-dark border border-edge rounded-lg px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all"
@@ -119,12 +138,21 @@ export function Contact() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     required
                     className="w-full bg-surface-dark border border-edge rounded-lg px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all resize-none"
                     placeholder="Describí brevemente qué necesitás..."
                   />
                 </div>
+
+                {error && (
+                  <div className="flex items-center gap-2 text-sm text-red-400">
+                    <AlertCircle size={15} className="shrink-0" />
+                    No pudimos enviar tu mensaje. Probá de nuevo o escribinos
+                    directo a hola@desarrollosinfronteras.com
+                  </div>
+                )}
 
                 <button
                   type="submit"
