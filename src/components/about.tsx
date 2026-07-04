@@ -59,9 +59,10 @@ export function About() {
                 software que funcione en producción, no solo en demos.
               </p>
               <p>
-                Tenemos productos propios como LegalIA y ConsorcioTrust,
-                creamos páginas web llave en mano y desarrollamos soluciones
-                a medida para quienes necesitan un equipo técnico comprometido.
+                Tenemos productos propios como LegalIA, ConsorcioTrust y
+                POSTGAME, creamos páginas web llave en mano y desarrollamos
+                soluciones a medida para quienes necesitan un equipo técnico
+                comprometido.
               </p>
             </div>
           </motion.div>

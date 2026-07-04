@@ -13,6 +13,10 @@ import {
   BookOpen,
   FileDown,
   Landmark,
+  Gamepad2,
+  Star,
+  Library,
+  Users,
   ArrowUpRight,
 } from "lucide-react";
 
@@ -55,6 +59,24 @@ const products = [
     stack: ["React", "Supabase", "Tailwind CSS", "PWA"],
     href: "#contacto",
   },
+  {
+    id: "postgame",
+    badge: "Próximamente",
+    badgeColor: "bg-accent/15 text-accent",
+    name: "POSTGAME",
+    tagline: "Tu diario de videojuegos.",
+    description:
+      "Red social y diario de videojuegos — el Letterboxd de los juegos. Registrá lo que jugás, puntualo con estrellas, escribí reviews y descubrí tu próximo juego a través de gente real.",
+    icon: Gamepad2,
+    features: [
+      { icon: Gamepad2, label: "Diario de juegos" },
+      { icon: Star, label: "Ratings y reviews" },
+      { icon: Library, label: "Catálogo de +280.000 títulos" },
+      { icon: Users, label: "Comunidad de jugadores" },
+    ],
+    stack: ["Next.js", "PostgreSQL", "Vercel"],
+    href: "#contacto",
+  },
 ];
 
 const containerVariants = {
@@ -93,7 +115,7 @@ export function Products() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-6 lg:grid-cols-2"
+          className="grid gap-6 lg:grid-cols-3"
         >
           {products.map((product) => {
             const Icon = product.icon;
@@ -132,7 +154,7 @@ export function Products() {
                 </p>
 
                 {/* Features */}
-                <div className="grid gap-3 mb-6 sm:grid-cols-2">
+                <div className="grid gap-3 mb-6 sm:grid-cols-2 lg:grid-cols-1">
                   {product.features.map((feature) => {
                     const FIcon = feature.icon;
                     return (

@@ -58,9 +58,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-ink-secondary leading-relaxed max-w-xl mb-10"
             >
-              Productos propios como LegalIA y ConsorcioTrust, páginas web
-              llave en mano y desarrollo a medida con IA. Desde la idea hasta
-              producción, sin fronteras.
+              Productos propios como LegalIA, ConsorcioTrust y POSTGAME,
+              páginas web llave en mano y desarrollo a medida con IA. Desde
+              la idea hasta producción, sin fronteras.
             </motion.p>
 
             {/* CTAs */}
@@ -176,7 +176,7 @@ export function Hero() {
           className="mt-20 flex flex-wrap gap-12 border-t border-edge pt-8"
         >
           {[
-            { value: "2", label: "Productos propios" },
+            { value: "3", label: "Productos propios" },
             { value: "Llave en mano", label: "Webs de punta a punta" },
             { value: "24/7", label: "Cloud Native" },
           ].map((stat) => (
