@@ -38,7 +38,7 @@ const products = [
       { icon: FileDown, label: "Exportación a Word" },
     ],
     stack: ["Next.js", "Supabase", "Claude AI", "RAG"],
-    href: "#contacto",
+    href: "https://legaliapp.com",
   },
   {
     id: "consorcio-trust",
@@ -57,7 +57,7 @@ const products = [
       { icon: Smartphone, label: "PWA multiplataforma" },
     ],
     stack: ["React", "Supabase", "Tailwind CSS", "PWA"],
-    href: "#contacto",
+    href: "https://consorciotrust.com",
   },
   {
     id: "postgame",
@@ -75,7 +75,7 @@ const products = [
       { icon: Users, label: "Comunidad de jugadores" },
     ],
     stack: ["Next.js", "PostgreSQL", "Vercel"],
-    href: "#contacto",
+    href: "https://playpostgame.com",
   },
 ];
 
@@ -185,9 +185,11 @@ export function Products() {
                 <div className="mt-6">
                   <a
                     href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover transition-colors group/link"
                   >
-                    Conocé más
+                    Visitar {product.name}
                     <ArrowUpRight
                       size={14}
                       className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
